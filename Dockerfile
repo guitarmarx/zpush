@@ -40,5 +40,5 @@ RUN apt-get update \
 ADD entrypoint.sh /srv
 RUN chmod +x /srv/entrypoint.sh \
 	&& mkdir -p  /var/log/z-push \
-	&& chown www-data:www-data /var/log/z-push /usr/share/z-push\
+	&& chown www-data:www-data /var/log/z-push /usr/share/z-push
 ENTRYPOINT /srv/entrypoint.sh
