@@ -35,5 +35,7 @@ RUN apt-get update \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 	
 ADD entrypoint.sh /srv
-RUN chmod +x /srv/entrypoint.sh
+RUN chmod +x /srv/entrypoint.sh \
+	&& mkdir -p  /var/log/z-push \
+	&& chown www-data:www-data /var/log/z-push
 ENTRYPOINT /srv/entrypoint.sh
