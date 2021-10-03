@@ -39,7 +39,7 @@ RUN apt-get update \
 	z-push-autodiscover \
 	z-push-ipc-sharedmemory \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/* \
-	&& docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
+	&& docker-php-ext-configure imap \
 	&& docker-php-ext-configure sysvshm --with-kerberos --with-imap-ssl \
 	&& docker-php-ext-install -j$(nproc) imap \
 	&& docker-php-ext-install -j$(nproc) sysvshm
