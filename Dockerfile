@@ -26,6 +26,7 @@ RUN apt-get update \
 	&& apt-get install -y \
 	php-soap \
 	z-push-common \
+	z-push-config-apache \
 	z-push-backend-caldav \
 	z-push-backend-carddav \
 	z-push-backend-combined \
