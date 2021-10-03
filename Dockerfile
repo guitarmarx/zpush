@@ -1,4 +1,4 @@
-FROM  php:7.4.24-apache-bust
+FROM  php:7.4.24-apache-buster
 LABEL maintainer="meteorIT GbR Marcus Kastner"
 
 VOLUME /var/lib/z-push/
@@ -8,7 +8,7 @@ EXPOSE 443
 ENV DEBIAN_FRONTEND=noninteractive \
 	TIMEZONE="Europe/Berlin" \
 	IMAP_SERVER=localhost \
-	IMAP_PORT=143 \
+	IMAP_PORT=143 
 	
 
 # install basic packages
