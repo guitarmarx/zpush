@@ -1,4 +1,4 @@
-FROM  php:7.2-apache-bullseye
+FROM  php:7.4-apache-bullseye
 LABEL maintainer="meteorIT GbR Marcus Kastner"
 
 VOLUME /var/lib/z-push/
@@ -24,6 +24,8 @@ RUN curl https://download.kopano.io/zhub/z-push:/final/Debian_10/Release.key | g
 
 RUN apt-get update \
 	&& apt-get install -y \
+	libc-client-dev \
+	libkrb5-dev \
 	php-soap \
 	php-imap \
 	z-push-common \
@@ -35,7 +37,10 @@ RUN apt-get update \
 	z-push-state-sql \
 	z-push-autodiscover \
 	z-push-ipc-sharedmemory \
-	&& apt-get clean && rm -rf /var/lib/apt/lists/*
+	&& apt-get clean && rm -rf /var/lib/apt/lists/* \
+	docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
+	&& docker-php-ext-install -j$(nproc) imap
+
 	
 ADD entrypoint.sh /srv
 RUN chmod +x /srv/entrypoint.sh \
