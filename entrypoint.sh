@@ -18,4 +18,4 @@ sed -i "s/('IMAP_FOLDER_CONFIGURED'.*/('IMAP_FOLDER_CONFIGURED', 'true');/g" /et
 
 
 ##########   Start Services   ############
-service apache2 start
+apachectl -D FOREGROUND
