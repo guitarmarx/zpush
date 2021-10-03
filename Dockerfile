@@ -34,10 +34,11 @@ RUN apt-get update \
 	z-push-backend-imap \
 	z-push-state-sql \
 	z-push-autodiscover \
+	z-push-ipc-sharedmemory \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 	
 ADD entrypoint.sh /srv
 RUN chmod +x /srv/entrypoint.sh \
 	&& mkdir -p  /var/log/z-push \
-	&& chown www-data:www-data /var/log/z-push
+	&& chown www-data:www-data /var/log/z-push /usr/share/z-push\
 ENTRYPOINT /srv/entrypoint.sh
