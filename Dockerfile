@@ -1,4 +1,4 @@
-FROM  php:7.3-apache-bullseye
+FROM  php:7.2-apache-bullseye
 LABEL maintainer="meteorIT GbR Marcus Kastner"
 
 VOLUME /var/lib/z-push/
