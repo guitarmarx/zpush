@@ -28,6 +28,7 @@ RUN apt-get update \
 	libkrb5-dev \
 	php-soap \
 	php-imap \
+	php-sysvshm \
 	z-push-common \
 	z-push-config-apache \
 	z-push-backend-caldav \
@@ -39,11 +40,13 @@ RUN apt-get update \
 	z-push-ipc-sharedmemory \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
-	&& docker-php-ext-install -j$(nproc) imap
+	&& docker-php-ext-configure sysvshm --with-kerberos --with-imap-ssl \
+	&& docker-php-ext-install -j$(nproc) imap \
+	&& docker-php-ext-install -j$(nproc) sysvshm
 
 	
 ADD entrypoint.sh /srv
 RUN chmod +x /srv/entrypoint.sh \
 	&& mkdir -p  /var/log/z-push \
-	&& chown www-data:www-data /var/log/z-push /usr/share/z-push /var/lib/z-push
+	&& chown -R  www-data:www-data /var/log/z-push /usr/share/z-push /var/lib/z-push
 ENTRYPOINT /srv/entrypoint.sh
