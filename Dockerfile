@@ -25,6 +25,7 @@ RUN curl https://download.kopano.io/zhub/z-push:/final/Debian_10/Release.key | g
 RUN apt-get update \
 	&& apt-get install -y \
 	php-soap \
+	php-imap \
 	z-push-common \
 	z-push-config-apache \
 	z-push-backend-caldav \

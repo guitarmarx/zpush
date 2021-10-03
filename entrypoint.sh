@@ -8,7 +8,7 @@ sed -i "s/('BACKEND_PROVIDER'.*/('BACKEND_PROVIDER', 'BackendIMAP');/g" /etc/z-p
 
 # imap config
 sed -i "s/('IMAP_SERVER'.*/('IMAP_SERVER', '$IMAP_SERVER');/g" /etc/z-push/imap.conf.php
-sed -i "s/('IMAP_SERVER'.*/('IMAP_PORT', '$IMAP_PORT');/g" /etc/z-push/imap.conf.php
+sed -i "s/('IMAP_PORT'.*/('IMAP_PORT', '$IMAP_PORT');/g" /etc/z-push/imap.conf.php
 
 sed -i "s/('IMAP_FOLDER_CONFIGURED'.*/('IMAP_FOLDER_CONFIGURED', 'true');/g" /etc/z-push/imap.conf.php
 
