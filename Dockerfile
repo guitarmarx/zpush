@@ -8,7 +8,19 @@ EXPOSE 80
 ENV DEBIAN_FRONTEND=noninteractive \
 	TIMEZONE="Europe/Berlin" \
 	IMAP_SERVER=localhost \
-	IMAP_PORT=143 
+	IMAP_PORT=143 \
+	BACKEND_PROVIDER=BackendIMAP \
+	CALDAV_PROTOCOL=https \
+	CALDAV_SERVER="<caldav-server>" \
+	CALDAV_PORT=443 \
+	CALDAV_PATH="/nextcloud/remote.php/dav/calendars/%u/" \
+	CALDAV_SUPPORTS_SYNC=true \
+	CARDDAV_PROTOCOL=https \
+	CARDDAV_SERVER="<caldav-server>" \
+	CARDDAV_PORT=443 \
+	CARDDAV_PATH="/nextcloud/remote.php/dav/addressbooks/users/%u/contacts/" \
+	CARDDAV_DEFAULT_PATH="/nextcloud/remote.php/dav/addressbooks/users/%u/contacts/" \
+	CARDDAV_SUPPORTS_SYNC=true
 	
 
 # install basic packages
