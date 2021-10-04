@@ -13,13 +13,13 @@ ENV DEBIAN_FRONTEND=noninteractive \
 	CALDAV_PROTOCOL=https \
 	CALDAV_SERVER="<caldav-server>" \
 	CALDAV_PORT=443 \
-	CALDAV_PATH="/nextcloud/remote.php/dav/calendars/%u/" \
+	CALDAV_PATH="/remote.php/dav/calendars/%u/" \
 	CALDAV_SUPPORTS_SYNC=true \
 	CARDDAV_PROTOCOL=https \
 	CARDDAV_SERVER="<caldav-server>" \
 	CARDDAV_PORT=443 \
-	CARDDAV_PATH="/nextcloud/remote.php/dav/addressbooks/users/%u/contacts/" \
-	CARDDAV_DEFAULT_PATH="/nextcloud/remote.php/dav/addressbooks/users/%u/contacts/" \
+	CARDDAV_PATH="/remote.php/dav/addressbooks/users/%u/contacts/" \
+	CARDDAV_DEFAULT_PATH="/remote.php/dav/addressbooks/users/%u/contacts/" \
 	CARDDAV_SUPPORTS_SYNC=true
 	
 
@@ -59,6 +59,6 @@ RUN apt-get update \
 	
 ADD entrypoint.sh /srv
 RUN chmod +x /srv/entrypoint.sh \
-	&& mkdir -p  /var/log/z-push \
+	&& mkdir -p  /var/log/z-push /usr/share/z-push /var/lib/z-push \
 	&& chown -R  www-data:www-data /var/log/z-push /usr/share/z-push /var/lib/z-push
 ENTRYPOINT /srv/entrypoint.sh
