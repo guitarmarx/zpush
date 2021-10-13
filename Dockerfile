@@ -30,8 +30,6 @@ RUN apt update \
 	gnupg2 \
 	lsb-release \
 	apt-transport-https \
-	ca-certificates \
-	&& rm /etc/apt/preferences.d/no-debian-php \
 	&& apt clean && rm -rf /var/lib/apt/lists/*
 
 # add php repo
