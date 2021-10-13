@@ -42,6 +42,7 @@ RUN apt update \
 	&& apt install -y \
 	php \
 	libapache2-mod-php \
+	php-mbstring \
 	z-push-common \
 	z-push-config-apache \
 	z-push-backend-caldav \
