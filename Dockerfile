@@ -1,4 +1,4 @@
-FROM  debian:10.11
+FROM  ubuntu:20.04
 LABEL maintainer="meteorIT GbR Marcus Kastner"
 
 VOLUME /var/lib/z-push/
@@ -32,18 +32,16 @@ RUN apt update \
 	apt-transport-https \
 	&& apt clean && rm -rf /var/lib/apt/lists/*
 
-# add php repo
-RUN curl https://packages.sury.org/php/apt.gpg > /usr/share/keyrings/php-archive-keyring.gpg \
-	&& echo "deb [signed-by=/usr/share/keyrings/php-archive-keyring.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list
-	
+
 # add z-push repo
-RUN curl https://download.kopano.io/zhub/z-push:/final/Debian_10/Release.key | gpg --dearmor > /usr/share/keyrings/z-push-archive-keyring.gpg \
-	&& echo "deb [signed-by=/usr/share/keyrings/z-push-archive-keyring.gpg] https://download.kopano.io/zhub/z-push:/final/Debian_10/ /" > /etc/apt/sources.list.d/zpush.list
+RUN curl https://download.kopano.io/zhub/z-push:/final/Ubuntu_20.04/Release.key | gpg --dearmor > /usr/share/keyrings/z-push-archive-keyring.gpg \
+	&& echo "deb [signed-by=/usr/share/keyrings/z-push-archive-keyring.gpg] https://download.kopano.io/zhub/z-push:/final/Ubuntu_20.04/ /" > /etc/apt/sources.list.d/zpush.list
 	
 
 RUN apt update \
 	&& apt install -y \
-	php7.4 \
+	php \
+	libapache2-mod-php \
 	z-push-common \
 	z-push-config-apache \
 	z-push-backend-caldav \
