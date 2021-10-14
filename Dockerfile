@@ -15,6 +15,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 	CALDAV_PORT=443 \
 	CALDAV_PATH="/remote.php/dav/calendars/%l/" \
 	CALDAV_SUPPORTS_SYNC=true \
+	CALDAV_PERSONAL="personal" \
 	CARDDAV_PROTOCOL=https \
 	CARDDAV_SERVER="<caldav-server>" \
 	CARDDAV_PORT=443 \

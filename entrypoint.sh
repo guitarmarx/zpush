@@ -22,6 +22,7 @@ sed -i "s|('CALDAV_SERVER'.*|('CALDAV_SERVER', '$CALDAV_SERVER');|g" $caldav_con
 sed -i "s|('CALDAV_PORT'.*|('CALDAV_PORT', '$CALDAV_PORT');|g" $caldav_config_file
 sed -i "s|('CALDAV_PATH'.*|('CALDAV_PATH', '$CALDAV_PATH');|g" $caldav_config_file
 sed -i "s|('CALDAV_SUPPORTS_SYNC'.*|('CALDAV_SUPPORTS_SYNC', '$CALDAV_SUPPORTS_SYNC');|g" $caldav_config_file
+sed -i "s|('CALDAV_PERSONAL'.*|('CALDAV_PERSONAL', '$CALDAV_PERSONAL');|g" $caldav_config_file
 
 # carddav config
 carddav_config_file="/etc/z-push/carddav.conf.php"
