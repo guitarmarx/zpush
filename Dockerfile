@@ -19,8 +19,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
 	CARDDAV_PROTOCOL=https \
 	CARDDAV_SERVER="<caldav-server>" \
 	CARDDAV_PORT=443 \
-	CARDDAV_PATH="/remote.php/dav/addressbooks/users/%u/contacts/" \
-	CARDDAV_DEFAULT_PATH="/remote.php/dav/addressbooks/users/%u/contacts/" \
+	CARDDAV_PATH="/remote.php/dav/addressbooks/users/%l/contacts/" \
+	CARDDAV_DEFAULT_PATH="/remote.php/dav/addressbooks/users/%l/contacts/" \
 	CARDDAV_SUPPORTS_SYNC=true
 	
 
@@ -55,7 +55,7 @@ RUN apt update \
 	z-push-ipc-sharedmemory \
 	&& apt clean && rm -rf /var/lib/apt/lists/* 
 	
-	
+ADD combined.conf.php /tmp	
 ADD entrypoint.sh /srv
 RUN chmod +x /srv/entrypoint.sh \
 	&& mkdir -p  /var/log/z-push /usr/share/z-push /var/lib/z-push /usr/share/php \
