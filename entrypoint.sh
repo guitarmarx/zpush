@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# combined config
+cp /tmp/combined.conf.php /etc/z-push/combined.conf.php
+
 # common config
 TIMEZONE=${TIMEZONE//\//\\/}
 common_config_file="/etc/z-push/z-push.conf.php"
