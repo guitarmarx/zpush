@@ -58,7 +58,7 @@ RUN apt update \
 ADD entrypoint.sh /srv
 RUN chmod +x /srv/entrypoint.sh \
 	&& mkdir -p  /var/log/z-push /usr/share/z-push /var/lib/z-push /usr/share/php \
-	&& chown -R  www-data:www-data /var/log/z-push /usr/share/z-push /var/lib/z-push /etc/z-push \
+	&& chown -R  www-data:www-data /var/log/z-push /usr/share/z-push /var/lib/z-push /etc/z-push /var/log/apache2 \
 	&& ln -s /usr/share/awl/inc/* /usr/share/php 
 	
 
