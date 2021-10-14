@@ -62,11 +62,6 @@ RUN chmod +x /srv/entrypoint.sh \
 	/var/log/z-push \
 	/usr/share/z-push \
 	/var/lib/z-push \
-	/etc/z-push \
-	/var/log/apache2  \
-	/etc/apache2 \
 	&& ln -s /usr/share/awl/inc/* /usr/share/php 
 	
-
-USER www-data
 ENTRYPOINT /srv/entrypoint.sh

@@ -34,4 +34,6 @@ sed -i "s|('CARDDAV_SUPPORTS_SYNC'.*|('CARDDAV_SUPPORTS_SYNC', '$CARDDAV_SUPPORT
 
 
 ##########   Start Services   ############
+export APACHE_RUN_USER=www-data
+
 apachectl -D FOREGROUND
